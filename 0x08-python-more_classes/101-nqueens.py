@@ -61,3 +61,4 @@ if __name__ == "__main__":
 
     final = Queen()
     final.solution(0, N, [None for i in range(N)])
+    
