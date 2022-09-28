@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""module to instantiate subclass MyList."""
+"""
+module for MyList
+"""
 
 
 class MyList(list):
-    """class inherits from list."""
+    """MyList class."""
 
     def print_sorted(self):
-        """prints the list, but sorted(ascending sort)."""
+        """Print the list sorted."""
         print(sorted(self))

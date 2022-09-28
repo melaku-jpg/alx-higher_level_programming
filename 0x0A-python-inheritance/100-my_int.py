@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-"""module contains MyInt class."""
+
+"""
+module for MyInt.
+"""
 
 
 class MyInt(int):
-    """class inherits from int data type class."""
+    """MyInt class"""
 
-    def __eq__(self, value):
-        """Works inversely to int operator."""
-        return super().__ne__(value)
+    def __ne__(self, other):
+        return super().__eq__(other)
 
-    def __ne__(self, value):
-        """Works inversely to the != operator."""
-        return super().__eq__(value)
+    def __eq__(self, other):
+        return super().__ne__(other)

@@ -1,9 +1,14 @@
 #!/usr/bin/python3
-"""module contains function that adds new attribute."""
+
+"""
+module for add_attribute
+"""
 
 
-def add_attribute(obj, name, value):
-    """function adds mew attribute to an object if it's possible."""
-    if not hasattr(obj, "__dict__"):
+def add_attribute(obj, key, value):
+    """new attr to an object"""
+    if not hasattr(obj, "__slots__") and not hasattr(obj, "__dict__"):
         raise TypeError("can't add new attribute")
-    obj.__dict__[name] = value
+    if hasattr(obj, "__slots__") and not hasattr(obj, key):
+        raise TypeError("can't add new attribute")
+    setattr(obj, key, value)

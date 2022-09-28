@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-"""module instantiates area(...) function."""
+"""
+module for BaseGeometry
+"""
 
 
-class BaseGeometry:
-    """class contains public instance method."""
+class BaseGeometry():
+    """BaseGeometry class"""
+
     def area(self):
-        """raises an Exception with the message area() is not implemented."""
+        """Raise an Exception"""
         raise Exception("area() is not implemented")
