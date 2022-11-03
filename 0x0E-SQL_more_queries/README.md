@@ -1,1 +1,1 @@
-This is the readme file for sql more queries.
+This is the readme file for sql more queries. 0x0E-SQL_MORE_QUERIES
