@@ -1,1 +1,0 @@
-This is the project that was given on SQL_Introduction.
