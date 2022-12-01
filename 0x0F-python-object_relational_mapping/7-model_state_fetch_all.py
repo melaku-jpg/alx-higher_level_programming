@@ -1,6 +1,5 @@
-
 #!/usr/bin/python3
-""" filter states by name """
+""" Lists all State objects """
 
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -12,12 +11,8 @@ if __name__ == '__main__':
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
-    sessionmaker = sessionmaker(bind=engine)
-    session = sessionmaker()
-    states = session.query(State)
-    res = states.filter_by(name=sys.argv[4]).first()
-    if res:
-        print(res.id)
-    else:
-        print("Not found")
+    Sessionmaker = sessionmaker(bind=engine)
+    session = Sessionmaker()
+    for state in session.query(State).order_by(State.id).all():
+        print("{}: {}".format(state.id, state.name))
     session.close()

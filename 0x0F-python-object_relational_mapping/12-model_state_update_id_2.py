@@ -1,6 +1,5 @@
-
 #!/usr/bin/python3
-""" filter states by name """
+""" change name of state with id 2 """
 
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -12,12 +11,12 @@ if __name__ == '__main__':
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
-    sessionmaker = sessionmaker(bind=engine)
-    session = sessionmaker()
-    states = session.query(State)
-    res = states.filter_by(name=sys.argv[4]).first()
-    if res:
-        print(res.id)
-    else:
-        print("Not found")
+    Sessionmaker = sessionmaker(bind=engine)
+    session = Sessionmaker()
+    new_mex = session.query(State).filter_by(id=2).first()
+    try:
+        new_mex.name = "New Mexico"
+    except Exception:
+        pass
+    session.commit()
     session.close()

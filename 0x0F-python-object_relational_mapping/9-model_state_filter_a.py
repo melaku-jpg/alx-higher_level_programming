@@ -1,6 +1,5 @@
-
 #!/usr/bin/python3
-""" filter states by name """
+""" filter all the states that contains the letter a """
 
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -12,12 +11,10 @@ if __name__ == '__main__':
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
-    sessionmaker = sessionmaker(bind=engine)
-    session = sessionmaker()
-    states = session.query(State)
-    res = states.filter_by(name=sys.argv[4]).first()
-    if res:
-        print(res.id)
-    else:
-        print("Not found")
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    states = session.query(State).order_by(State.id)
+    for i, state in enumerate(states, 1):
+        if 'a' in state.name:
+            print("{:d}: {:s}".format(i, state.name))
     session.close()

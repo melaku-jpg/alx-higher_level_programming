@@ -16,4 +16,3 @@ if __name__ == "__main__":
         print (state)
     cur.close()
     db.close()
-    
