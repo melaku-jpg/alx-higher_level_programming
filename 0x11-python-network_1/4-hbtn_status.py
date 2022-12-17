@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """
-Python script that fetches an URL with requests package
+    Module for getting the status of intranet.hbtn.io/status.
 """
 import requests
 
-
 if __name__ == "__main__":
-    r = requests.get('https://alx-intranet.hbtn.io/status')
-    t = r.text
-    print('Body response:\n\t- type: {}\n\t- content: {}'.format(type(t), t))
+    resp = requests.get('https://alx-intranet.hbtn.io/status')
+    if resp is not None:
+        print("Body response:")
+        print("\t- type: {}".format(type(resp.text)))
+        print("\t- content: {}".format(resp.text))
